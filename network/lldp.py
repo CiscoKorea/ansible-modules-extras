@@ -66,7 +66,8 @@ def gather_lldp():
             for path_component in path_components:
                 current_dict[path_component] = current_dict.get(path_component, {})
                 current_dict = current_dict[path_component]
-            current_dict[final] = value
+            if type(current_dict) == dict:
+                current_dict[final] = value
         return output_dict
             
 
